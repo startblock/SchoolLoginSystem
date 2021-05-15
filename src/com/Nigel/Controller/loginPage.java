@@ -11,7 +11,7 @@ import java.awt.event.ActionEvent;
 public class loginPage extends BaseController {
 
     @FXML
-    private TextField emailAddressFied;
+    private TextField ID;
 
     @FXML
     private PasswordField passwordField;
@@ -28,9 +28,14 @@ public class loginPage extends BaseController {
     @FXML
     void LoginRequest() {
         System.out.println("logged in!");
+        if(ID.getText().equals("hello")){
+            System.out.println("This does something!!!!!!!!!!!");
+
+        }
+        System.out.println(ID.getText());
 
         pageFactory.DashboardWindow();
-        Stage stage= (Stage) emailAddressFied.getScene().getWindow();
+        Stage stage= (Stage) ID.getScene().getWindow();
         pageFactory.StageCloser(stage);
 
 

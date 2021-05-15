@@ -3,7 +3,7 @@ package com.Nigel.Model;
 public class TeacherAccount extends UserAccount{
 
 
-    public TeacherAccount(int ID, String name,Password password) {
+    public TeacherAccount(int ID, String name,String password) {
         super(ID, name,password);
 
     }

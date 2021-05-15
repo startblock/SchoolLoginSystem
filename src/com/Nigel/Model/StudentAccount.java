@@ -7,7 +7,7 @@ public class StudentAccount extends UserAccount{
 
 
 
-    public StudentAccount(int ID, String name,Password password) {
+    public StudentAccount(int ID, String name,String password) {
         super(ID, name, password);
         hasHomework=false;
     }
