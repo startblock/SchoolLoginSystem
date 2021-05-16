@@ -3,8 +3,8 @@ package com.Nigel.Model;
 public class TeacherAccount extends UserAccount{
 
 
-    public TeacherAccount(int ID, String name,String password) {
-        super(ID, name,password);
+    public TeacherAccount( String name,String password) {
+        super( name,password);
 
     }
     public void setStudentHomework(StudentAccount student,Homework homework){
