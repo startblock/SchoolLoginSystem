@@ -1,17 +1,21 @@
 package com.Nigel.Controller;
 
+import com.Nigel.Model.Password;
+import com.Nigel.Model.StudentAccount;
+import com.Nigel.Model.UserAccount;
+import com.Nigel.Model.UserDatabaseMap;
 import com.Nigel.View.PageFactory;
 import javafx.fxml.*;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-import java.awt.event.ActionEvent;
-
 public class loginPage extends BaseController {
 
+    private UserAccount userAccount;
+
     @FXML
-    private TextField ID;
+    private TextField loginDetails;
 
     @FXML
     private PasswordField passwordField;
@@ -27,20 +31,34 @@ public class loginPage extends BaseController {
 
     @FXML
     void LoginRequest() {
-        System.out.println("logged in!");
-        if(ID.getText().equals("hello")){
-            System.out.println("This does something!!!!!!!!!!!");
+        int IDloginStringToInt = Integer.parseInt(this.loginDetails.getText());
+
+        if(UserDatabaseMap.isIDPresent(IDloginStringToInt)){
+
+            this.userAccount=UserDatabaseMap.getUserFromMap(IDloginStringToInt);
+
+            if(userAccount.getPassword().equals(Password.encryptPassword(passwordField.getText()))){
+
+            switch (userAccount.getAccountType()){
+
+                case ADMIN:
+                    System.out.println("adminnnnnn ");
+
+                case STUDENT:
+                    pageFactory.StudentDashboardWindow(userAccount);
+                    Stage stage= (Stage) loginDetails.getScene().getWindow();
+                    pageFactory.StageCloser(stage);
+
+                case TEACHER:
+                    System.out.println("hi teacher ");
+
+            }
+
+            }
+
 
         }
-        System.out.println(ID.getText());
-
-        pageFactory.DashboardWindow();
-        Stage stage= (Stage) ID.getScene().getWindow();
-        pageFactory.StageCloser(stage);
-
-
 
     }
-
 
 }

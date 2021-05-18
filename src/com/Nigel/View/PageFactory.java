@@ -1,8 +1,9 @@
 package com.Nigel.View;
 
 import com.Nigel.Controller.BaseController;
-import com.Nigel.Controller.DashboardPage;
+import com.Nigel.Controller.StudentDashboardPage;
 import com.Nigel.Controller.loginPage;
+import com.Nigel.Model.UserAccount;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -17,13 +18,25 @@ public class PageFactory {
         fxmlLoaderMethod(controller);
     }
 
-    public void DashboardWindow(){
-        BaseController controller = new DashboardPage(this, "DashboardWindow.fxml");
+    public void StudentDashboardWindow(UserAccount account){
+        BaseController controller = new StudentDashboardPage(this, "StudentDashboardWindow.fxml",account);
         fxmlLoaderMethod(controller);
         
 
+    }
+    public void TeacherDashboardWindow(UserAccount account){
+        BaseController controller = new StudentDashboardPage(this, "TeacherDashboardWindow.fxml",account);
+        fxmlLoaderMethod(controller);
 
     }
+
+    public void AdminDashboardWindow(UserAccount account){
+        BaseController controller = new StudentDashboardPage(this, "AdminDashboardWindow.fxml",account);
+        fxmlLoaderMethod(controller);
+
+
+    }
+
     private void fxmlLoaderMethod(BaseController controller){
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(controller.getFxmlString()));
         fxmlLoader.setController(controller);

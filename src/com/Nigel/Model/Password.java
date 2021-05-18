@@ -6,14 +6,7 @@ public class Password {
 
 
 
-    public static void main(String[] args) {
-
-        System.out.println(encryptPassword("nigelburkezzzzzzzz"));
-
-
-    }
-
-    public static String encryptPassword(String password){
+    public static String encryptPassword(String password){    //1024 bit password hash
 
         char[] encryptedArray=new char[password.length()];
 
@@ -32,10 +25,6 @@ public class Password {
             }
 
                }
-
-        for (char value : encryptedArray) {
-            System.out.println(value);
-        }
 
         return String.valueOf(encryptedArray) ;
     }

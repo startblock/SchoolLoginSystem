@@ -3,9 +3,9 @@ package com.Nigel.Model;
 import java.util.HashMap;
 
 public class UserDatabaseMap {
-    static HashMap<Integer,UserAccount> userDatabaseMap = new HashMap<>();
+    protected static HashMap<Integer,UserAccount> userDatabaseMap = new HashMap<>();
 
-    public void addUserToMap(UserAccount newUser){
+    protected static void addUserToMap(UserAccount newUser){
         userDatabaseMap.put(newUser.getID(),newUser);
 
     }
@@ -14,6 +14,12 @@ public class UserDatabaseMap {
             return true;
         }
         else {return false;}
+    }
+
+    public static UserAccount getUserFromMap(int ID){
+        return userDatabaseMap.get(ID);
+
+
     }
 
 }
