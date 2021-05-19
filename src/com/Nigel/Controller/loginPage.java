@@ -42,15 +42,23 @@ public class loginPage extends BaseController {
             switch (userAccount.getAccountType()){
 
                 case ADMIN:
-                    System.out.println("adminnnnnn ");
+                    pageFactory.AdminDashboardWindow(userAccount);
+                    Stage stage= (Stage) loginDetails.getScene().getWindow();
+                    pageFactory.StageCloser(stage);
+                    break;
 
                 case STUDENT:
                     pageFactory.StudentDashboardWindow(userAccount);
-                    Stage stage= (Stage) loginDetails.getScene().getWindow();
-                    pageFactory.StageCloser(stage);
+                    Stage studentStage= (Stage) loginDetails.getScene().getWindow();
+                    pageFactory.StageCloser(studentStage);
+                    break;
 
                 case TEACHER:
-                    System.out.println("hi teacher ");
+
+                    pageFactory.TeacherDashboardWindow(userAccount);
+                    Stage stageTeacher= (Stage) loginDetails.getScene().getWindow();
+                    pageFactory.StageCloser(stageTeacher);
+                    break;
 
             }
 
