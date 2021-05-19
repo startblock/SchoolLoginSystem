@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label fx:id="Bulletin" alignment="CENTER" layoutX="14.0" layoutY="14.0" prefHeight="23.0" prefWidth="579.0" text="Label" AnchorPane.leftAnchor="10.0" />
+      <Pane layoutY="26.0" prefHeight="371.0" prefWidth="217.0">
+         <children>
+            <Button fx:id="MakeNewAccount" layoutX="50.0" layoutY="46.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="117.0" text="Create Account" />
+            <Button fx:id="SetNewBulletin" layoutX="61.0" layoutY="93.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="98.0" text="Set Bulletin" />
+            <Button fx:id="RemoveAccount" layoutX="56.0" layoutY="140.0" mnemonicParsing="false" text="Remove Account" />
+            <Button fx:id="EditAccount" layoutX="67.0" layoutY="186.0" mnemonicParsing="false" text="Edit Account" />
+         </children>
+      </Pane>
+      <Button fx:id="logOut" layoutX="537.0" layoutY="361.0" mnemonicParsing="false" onAction="#logOut" text="Log out" />
+   </children>
+</AnchorPane>
