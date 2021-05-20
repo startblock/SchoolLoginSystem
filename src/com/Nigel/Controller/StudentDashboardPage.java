@@ -30,8 +30,8 @@ public class StudentDashboardPage extends BaseController implements Initializabl
 
     public StudentDashboardPage(PageFactory pageFactory, String fxmlString, UserAccount account) {
 
-        super(pageFactory, fxmlString);
-        this.account=account;
+        super(pageFactory, fxmlString,account);
+
 
     }
 

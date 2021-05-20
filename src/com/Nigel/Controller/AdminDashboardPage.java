@@ -2,11 +2,14 @@ package com.Nigel.Controller;
 
 
 
+import com.Nigel.View.PageFactory;
+import com.Nigel.Model.UserAccount;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
-public class AdminDashboardPage {
+public class AdminDashboardPage extends BaseController {
 
     @FXML
     private Label Bulletin;
@@ -25,6 +28,10 @@ public class AdminDashboardPage {
 
     @FXML
     private Button logOut;
+
+    public AdminDashboardPage(PageFactory pageFactory, String fxmlString,UserAccount user) {
+        super(pageFactory, fxmlString,user);
+    }
 
     @FXML
     void logOut() {

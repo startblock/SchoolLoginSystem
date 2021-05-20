@@ -1,8 +1,6 @@
 package com.Nigel.Controller;
 
-import com.Nigel.Model.StudentAccount;
-import com.Nigel.Model.UserAccount;
-import com.Nigel.Model.UserDatabaseMap;
+import com.Nigel.Model.*;
 import com.Nigel.View.PageFactory;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -19,7 +17,7 @@ public class Main extends Application {
 //        Scene scene= new Scene(root,800,800);
 //        primaryStage.setScene(scene);
 //        primaryStage.show();
-        UserAccount newUser= new StudentAccount("nigel","pass");
+        UserAccount newUser= new TeacherAccount("nigel","pass");
         //UserDatabaseMap.addUserToMap(newUser);
         System.out.println(newUser.getID());
         PageFactory pageFactory= new PageFactory();
