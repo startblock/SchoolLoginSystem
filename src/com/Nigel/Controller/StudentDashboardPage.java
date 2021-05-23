@@ -15,7 +15,7 @@ import java.util.ResourceBundle;
 
 public class StudentDashboardPage extends BaseController implements Initializable {
 
-    UserAccount account;
+    StudentAccount studentAccount;
 
     @FXML
     private WebView page;
@@ -31,6 +31,7 @@ public class StudentDashboardPage extends BaseController implements Initializabl
     public StudentDashboardPage(PageFactory pageFactory, String fxmlString, UserAccount account) {
 
         super(pageFactory, fxmlString,account);
+        studentAccount=(StudentAccount) account;
 
 
     }
@@ -38,7 +39,7 @@ public class StudentDashboardPage extends BaseController implements Initializabl
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        Name.setText("welcome "+account.getName());
+        Name.setText("welcome "+studentAccount.getName());
 
     }
 }

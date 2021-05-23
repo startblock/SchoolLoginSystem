@@ -16,7 +16,7 @@ import java.util.ResourceBundle;
 
 public class TeacherDashboardPage extends BaseController{
 
-    UserAccount user;
+    TeacherAccount teacherAccount;
 
     @FXML
     private Label Bulletin;
@@ -38,6 +38,7 @@ public class TeacherDashboardPage extends BaseController{
 
     public TeacherDashboardPage(PageFactory pageFactory, String fxmlString, UserAccount user) {
         super(pageFactory, fxmlString,user);
+        teacherAccount=(TeacherAccount) user;
 
 
     }

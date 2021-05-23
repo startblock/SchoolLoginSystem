@@ -1,10 +1,6 @@
 package com.Nigel.View;
 
-import com.Nigel.Controller.BaseController;
-import com.Nigel.Controller.StudentDashboardPage;
-import com.Nigel.Controller.TeacherDashboardPage;
-import com.Nigel.Controller.loginPage;
-import com.Nigel.Model.TeacherAccount;
+import com.Nigel.Controller.*;
 import com.Nigel.Model.UserAccount;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -33,7 +29,7 @@ public class PageFactory {
     }
 
     public void AdminDashboardWindow(UserAccount account){
-        BaseController controller = new StudentDashboardPage(this, "AdminDashboardWindow.fxml",account);
+        BaseController controller = new AdminDashboardPage(this, "AdminDashboardWindow.fxml",account);
         fxmlLoaderMethod(controller);
 
 

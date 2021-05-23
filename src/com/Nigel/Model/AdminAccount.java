@@ -7,9 +7,10 @@ public class AdminAccount extends UserAccount {
         super( name,password,AccountType.ADMIN);
     }
 
-    public UserAccount createNewUser(UserAccount account){
-        //tbc
-        return account;
+    public void createNewUser(UserAccount account){
+
+        UserDatabaseMap.addUserToMap(account);
+        System.out.println(account.getAccountType());
     }
     public void deleteUserAccount(UserAccount account){
         //account to be deleted

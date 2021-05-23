@@ -17,7 +17,7 @@ public class Main extends Application {
 //        Scene scene= new Scene(root,800,800);
 //        primaryStage.setScene(scene);
 //        primaryStage.show();
-        UserAccount newUser= new TeacherAccount("nigel","pass");
+        UserAccount newUser= new AdminAccount("nigel","pass");
         //UserDatabaseMap.addUserToMap(newUser);
         System.out.println(newUser.getID());
         PageFactory pageFactory= new PageFactory();
