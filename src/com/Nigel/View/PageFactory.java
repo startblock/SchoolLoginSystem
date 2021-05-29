@@ -10,10 +10,16 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class PageFactory {
+    Stage stage;
 
     public void mainLogWindow() {
         BaseController controller = new loginPage(this, "loginPage.fxml");
         fxmlLoaderMethod(controller);
+    }
+
+    public void secondLog(UserAccount account){
+        BaseController controller =new AdminDashboardPage(this,"AdminDashboardWindow.fxml",account);
+        fxmlLoaderMethodNewScene(controller,stage);
     }
 
     public void StudentDashboardWindow(UserAccount account){
@@ -48,9 +54,36 @@ public class PageFactory {
         }
         Scene scene= new Scene(parent);
         Stage stage = new Stage();
+
+        //   CAREFUL
+
+        this.stage=stage;
+
+        // ===========
+
+
+
         stage.setScene(scene);
         stage.show();
     }
+
+    private void fxmlLoaderMethodNewScene(BaseController controller,Stage stage){
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(controller.getFxmlString()));
+        fxmlLoader.setController(controller);
+        Parent parent;
+        try {
+            parent = fxmlLoader.load();
+
+        }catch (IOException e){
+            e.printStackTrace();
+            return;
+        }
+        Scene scene= new Scene(parent);
+
+        stage.setScene(scene);
+        stage.show();
+    }
+
     public void StageCloser(Stage stageToClose){
         stageToClose.close();
     }

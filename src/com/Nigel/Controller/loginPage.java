@@ -31,6 +31,18 @@ public class loginPage extends BaseController {
 
     @FXML
     void LoginRequest() {
+
+//        int IDloginStringToInt = Integer.parseInt(this.loginDetails.getText());
+//
+//        if(UserDatabaseMap.isIDPresent(IDloginStringToInt)){
+//
+//            this.userAccount=UserDatabaseMap.getUserFromMap(IDloginStringToInt);
+//
+//            if(userAccount.getPassword().equals(Password.encryptPassword(passwordField.getText()))){
+//            pageFactory.secondLog(userAccount);}
+//        }
+
+
         int IDloginStringToInt = Integer.parseInt(this.loginDetails.getText());
 
         if(UserDatabaseMap.isIDPresent(IDloginStringToInt)){
