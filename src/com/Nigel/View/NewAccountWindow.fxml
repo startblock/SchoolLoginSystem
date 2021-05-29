@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TextField fx:id="nameString" layoutX="226.0" layoutY="112.0" />
+      <ChoiceBox fx:id="accountType" layoutX="225.0" layoutY="63.0" prefWidth="150.0" />
+      <Label layoutX="118.0" layoutY="67.0" text="Account Type" />
+      <Label fx:id="nameField" layoutX="118.0" layoutY="116.0" text="Name" />
+      <Label fx:id="passField" layoutX="118.0" layoutY="158.0" text="Password" />
+      <TextField layoutX="226.0" layoutY="154.0" />
+      <Button layoutX="267.0" layoutY="188.0" mnemonicParsing="false" onAction="#createOnClick" text="Create" />
+      <MenuBar layoutX="14.0" layoutY="14.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="Home">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <Button layoutX="520.0" layoutY="353.0" mnemonicParsing="false" text="Log out" />
+   </children>
+</AnchorPane>
