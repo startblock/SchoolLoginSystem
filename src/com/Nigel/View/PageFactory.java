@@ -17,8 +17,8 @@ public class PageFactory {
         fxmlLoaderMethod(controller);
     }
 
-    public void secondLog(UserAccount account){
-        BaseController controller =new AdminDashboardPage(this,"AdminDashboardWindow.fxml",account);
+    public void makeAccountWindow(UserAccount account){
+        BaseController controller =new AdminDashboardPage(this,"NewAccountWindow.fxml",account);
         fxmlLoaderMethodNewScene(controller,stage);
     }
 

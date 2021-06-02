@@ -1,19 +1,20 @@
 package com.Nigel.Controller;
 
-
-
-import com.Nigel.Model.AdminAccount;
-import com.Nigel.Model.TeacherAccount;
-import com.Nigel.Model.UserDatabaseMap;
+import com.Nigel.Model.*;
 import com.Nigel.View.PageFactory;
-import com.Nigel.Model.UserAccount;
-
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
+import javafx.fxml.Initializable;
+import javafx.scene.control.*;
 
-public class AdminDashboardPage extends BaseController {
-    private AdminAccount adminAccount;
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class AdminDashboardPage extends BaseController implements Initializable {
+
+    AdminAccount account;
+
+    @FXML
+    private Button logOut;
 
     @FXML
     private Label Bulletin;
@@ -31,28 +32,82 @@ public class AdminDashboardPage extends BaseController {
     private Button EditAccount;
 
     @FXML
-    private Button logOut;
+    private TextField nameString;
 
-    public AdminDashboardPage(PageFactory pageFactory, String fxmlString,UserAccount user) {
-        super(pageFactory, fxmlString,user);
-        adminAccount=(AdminAccount) user;
+    @FXML
+    private ChoiceBox<AccountType> accountType;
+
+    @FXML
+    private TextField bulletinString;
+
+    @FXML
+    private Label nameField;
+
+    @FXML
+    private Label passField;
+
+    @FXML
+    private PasswordField newAccPass;
+
+    public AdminDashboardPage(PageFactory pageFactory, String fxmlString, UserAccount user) {
+        super(pageFactory, fxmlString, user);
+        account=(AdminAccount) user;
     }
 
     @FXML
-    void logOut(){
-        System.out.println("heyyyy");
+    void MakeNewAccount() {
+
+
     }
-
-
-
 
     @FXML
-    void MakeNewAccount(){
-        System.out.println("tfutuutfutyf");
+    void SetNewBulletin(){
+        this.setBulletin(bulletinString.getText());
+        System.out.println(this.getBulletin());
 
-        adminAccount.createNewUser(new TeacherAccount("lisa","pass"));
 
-
-        
     }
+
+    @FXML
+    void createOnClick() {
+        int newIdNo=0;
+        switch (accountType.getValue()){
+            case ADMIN:
+                UserAccount newAdAcc= new AdminAccount(nameString.getText(),newAccPass.getText());
+                newIdNo=newAdAcc.getID();
+                break;
+
+            case STUDENT:
+                UserAccount newStudentAcc= new StudentAccount(nameString.getText(),newAccPass.getText());
+                newIdNo=newStudentAcc.getID();
+                break;
+            case TEACHER:
+                UserAccount newTeacherAcc= new TeacherAccount(nameString.getText(),newAccPass.getText());
+                newIdNo=newTeacherAcc.getID();
+                break;
+        }
+
+        System.out.println(newIdNo);
+
+
+
+
+    }
+
+    @FXML
+    void logOut() {
+
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        accountType.getItems().add(AccountType.ADMIN);
+        accountType.getItems().add(AccountType.TEACHER);
+        accountType.getItems().add(AccountType.STUDENT);
+
+        Bulletin.setText(this.getBulletin());
+
+
+    }
+
 }

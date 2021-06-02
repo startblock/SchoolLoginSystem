@@ -12,22 +12,14 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-//        Parent root = FXMLLoader.load(getClass().getResource("/com/Nigel/View/loginPage.fxml"));
-//
-//        Scene scene= new Scene(root,800,800);
-//        primaryStage.setScene(scene);
-//        primaryStage.show();
-        UserAccount newUser= new StudentAccount("nigel","pass");
-        //UserDatabaseMap.addUserToMap(newUser);
+
+        UserAccount newUser= new AdminAccount("nigel","pass");
+
         System.out.println(newUser.getID());
         PageFactory pageFactory= new PageFactory();
         pageFactory.mainLogWindow();
 
 
-
-//        primaryStage.setTitle("Hello World");
-//        primaryStage.setScene(new Scene(root, 300, 275));
-//        primaryStage.show();
     }
 
 
