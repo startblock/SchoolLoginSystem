@@ -1,50 +1,33 @@
 package com.Nigel.Controller;
 
+/*
+    This class is responsible for the control of the admin dashboard
+    is the primary page for admin users to undertake their tasks
+
+ */
 import com.Nigel.Model.*;
 import com.Nigel.View.PageFactory;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class AdminDashboardPage extends BaseController implements Initializable {
+public class AdminDashboardPage extends BaseController implements Initializable  {
 
     AdminAccount account;
-
-    @FXML
-    private Button logOut;
 
     @FXML
     private Label Bulletin;
 
     @FXML
-    private Button MakeNewAccount;
+    private TextField getUserID,getUserName,getUserPass,nameString,bulletinString;
 
     @FXML
-    private Button SetNewBulletin;
-
-    @FXML
-    private Button RemoveAccount;
-
-    @FXML
-    private Button EditAccount;
-
-    @FXML
-    private TextField nameString;
+    private Button MakeNewAccount, SetNewBulletin,RemoveAccount,EditAccount,logOut, updateAcc;
 
     @FXML
     private ChoiceBox<AccountType> accountType;
-
-    @FXML
-    private TextField bulletinString;
-
-    @FXML
-    private Label nameField;
-
-    @FXML
-    private Label passField;
 
     @FXML
     private PasswordField newAccPass;
@@ -56,15 +39,12 @@ public class AdminDashboardPage extends BaseController implements Initializable 
 
     @FXML
     void MakeNewAccount() {
-
-
     }
 
     @FXML
     void SetNewBulletin(){
-        this.setBulletin(bulletinString.getText());
-        System.out.println(this.getBulletin());
-
+        setBulletin(bulletinString.getText());
+        System.out.println(getBulletin());
 
     }
 
@@ -86,27 +66,67 @@ public class AdminDashboardPage extends BaseController implements Initializable 
                 newIdNo=newTeacherAcc.getID();
                 break;
         }
-
         System.out.println(newIdNo);
 
+    }
+    @FXML
+    void updateAccount(){
+
+        UserAccount user =UserDatabaseMap.getUserFromMap(Integer.parseInt(getUserID.getText()));
+
+        if(!getUserName.getText().isBlank()){
+            user.setName(getUserName.getText());
+
+        }
+        else if (!getUserPass.getText().isBlank()){
+            user.setPassword(getUserPass.getText());
+
+        }
+        System.out.println(user.getName());
+
+//        switch (user.getAccountType()){
+//            case ADMIN:
+//                if(!getUserName.getText().isBlank()){
+//                    user.setName(getUserName.getText());
+//
+//                }
+//                else if (!getUserPass.getText().isBlank()){
+//                    user.setPassword(getUserPass.getText());
+//
+//                }
+//                break;
+//            case STUDENT:
+//                if(!getUserName.getText().isBlank()){
+//                    user.setName(getUserName.getText());
+//
+//                }
+//                else if (!getUserPass.getText().isBlank()){
+//                    user.setPassword(getUserPass.getText());
+//
+//                }
+//                break;
+//            case TEACHER:
 
 
 
+//        }
+        /// to be continued
     }
 
     @FXML
-    void logOut() {
+    void logOut1() {           // log's user out of account and returns to log in page
+
+        logOutFunction(pageFactory.getStage());
 
     }
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    public void initialize(URL url, ResourceBundle resourceBundle) { //initializes gui
         accountType.getItems().add(AccountType.ADMIN);
         accountType.getItems().add(AccountType.TEACHER);
         accountType.getItems().add(AccountType.STUDENT);
 
-        Bulletin.setText(this.getBulletin());
-
+        Bulletin.setText(getBulletin());
 
     }
 
