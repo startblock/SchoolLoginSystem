@@ -1,16 +1,17 @@
 package com.Nigel.Controller;
 
-import com.Nigel.Model.Password;
-import com.Nigel.Model.StudentAccount;
-import com.Nigel.Model.UserAccount;
-import com.Nigel.Model.UserDatabaseMap;
+import com.Nigel.Model.*;
 import com.Nigel.View.PageFactory;
 import javafx.fxml.*;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-public class loginPage extends BaseController {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class LoginPage extends BaseController implements Initializable {
 
     private UserAccount userAccount;
 
@@ -20,7 +21,10 @@ public class loginPage extends BaseController {
     @FXML
     private PasswordField passwordField;
 
-    public loginPage(PageFactory pageFactory, String fxmlString) {
+    @FXML
+    private Label Bulletin;
+
+    public LoginPage(PageFactory pageFactory, String fxmlString) {
         super(pageFactory, fxmlString);
     }
 
@@ -29,8 +33,17 @@ public class loginPage extends BaseController {
 
     }
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) { //initializes gui
+
+        Bulletin.setText(getBulletin());
+        System.out.println(getBulletin());
+
+    }
+
     @FXML
     void LoginRequest() {
+
 
 //        int IDloginStringToInt = Integer.parseInt(this.loginDetails.getText());
 //
@@ -44,12 +57,19 @@ public class loginPage extends BaseController {
 
 
         int IDloginStringToInt = Integer.parseInt(this.loginDetails.getText());
+        System.out.println(IDloginStringToInt);
 
         if(UserDatabaseMap.isIDPresent(IDloginStringToInt)){
 
-            this.userAccount=UserDatabaseMap.getUserFromMap(IDloginStringToInt);
 
-            if(userAccount.getPassword().equals(Password.encryptPassword(passwordField.getText()))){
+            this.userAccount=UserDatabaseMap.getUserFromMap(IDloginStringToInt);
+            System.out.println(userAccount.getPassword());
+            System.out.println(passwordField.getText());
+
+
+
+            if(userAccount.getPassword().equals((passwordField.getText()))){
+                System.out.println(userAccount.getName());
 
             switch (userAccount.getAccountType()){
 
@@ -57,6 +77,7 @@ public class loginPage extends BaseController {
                     pageFactory.AdminDashboardWindow(userAccount);
                     Stage stage= (Stage) loginDetails.getScene().getWindow();
                     pageFactory.StageCloser(stage);
+                    System.out.println("debuggggggggggggggg stage 1");
                     break;
 
                 case STUDENT:

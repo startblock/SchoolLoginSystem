@@ -11,7 +11,7 @@ import java.util.concurrent.ThreadLocalRandom;
 public abstract class UserAccount {
     protected int ID;
     protected String name;
-    protected String password;
+    private String password;
     protected AccountType accountType;
 
 
@@ -51,7 +51,7 @@ public abstract class UserAccount {
         this.name = name;
     }
 
-    protected void setPassword(String password) {
+    public void setPassword(String password) {
         this.password = Password.encryptPassword(password);
     }
 
@@ -64,6 +64,6 @@ public abstract class UserAccount {
     }
 
     public String getPassword() {
-        return password;
+        return Password.decryptPassword(password);
     }
 }

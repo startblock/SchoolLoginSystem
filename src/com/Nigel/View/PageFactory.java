@@ -12,8 +12,12 @@ import java.io.IOException;
 public class PageFactory {
     Stage stage;
 
+    public Stage getStage() {
+        return stage;
+    }
+
     public void mainLogWindow() {
-        BaseController controller = new loginPage(this, "loginPage.fxml");
+        BaseController controller = new LoginPage(this, "loginPage.fxml");
         fxmlLoaderMethod(controller);
     }
 

@@ -25,6 +25,7 @@
    <TextField fx:id="loginDetails" layoutX="130.0" layoutY="127.0" prefHeight="26.0" prefWidth="353.0" />
    <PasswordField fx:id="passwordField" layoutX="130.0" layoutY="168.0" prefHeight="26.0" prefWidth="353.0" />
    <Label fx:id="errorLabel" layoutX="27.0" layoutY="290.0" prefHeight="26.0" prefWidth="382.0" styleClass="errorText" />
-   <Label fx:id="Bulletin" layoutX="27.0" prefHeight="26.0" prefWidth="436.0" styleClass="big" text="welcome" />
+   <Label fx:id="WelcomeMsg" layoutX="225.0" layoutY="79.0" prefHeight="26.0" prefWidth="60.0" styleClass="big" text="welcome" />
+      <Label fx:id="Bulletin" layoutX="15.0" layoutY="6.0" prefHeight="17.0" prefWidth="481.0" text="Label" />
 </children>
 </AnchorPane>
