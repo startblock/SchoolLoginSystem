@@ -57,19 +57,16 @@ public class LoginPage extends BaseController implements Initializable {
 
 
         int IDloginStringToInt = Integer.parseInt(this.loginDetails.getText());
-        System.out.println(IDloginStringToInt);
 
         if(UserDatabaseMap.isIDPresent(IDloginStringToInt)){
 
 
             this.userAccount=UserDatabaseMap.getUserFromMap(IDloginStringToInt);
-            System.out.println(userAccount.getPassword());
-            System.out.println(passwordField.getText());
+
 
 
 
             if(userAccount.getPassword().equals((passwordField.getText()))){
-                System.out.println(userAccount.getName());
 
             switch (userAccount.getAccountType()){
 
@@ -77,7 +74,6 @@ public class LoginPage extends BaseController implements Initializable {
                     pageFactory.AdminDashboardWindow(userAccount);
                     Stage stage= (Stage) loginDetails.getScene().getWindow();
                     pageFactory.StageCloser(stage);
-                    System.out.println("debuggggggggggggggg stage 1");
                     break;
 
                 case STUDENT:
