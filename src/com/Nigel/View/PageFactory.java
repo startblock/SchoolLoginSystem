@@ -20,6 +20,10 @@ public class PageFactory {
         BaseController controller = new LoginPage(this, "loginPage.fxml");
         fxmlLoaderMethod(controller);
     }
+    public void makeErrorWindow(){
+        BaseController controller = new ErrorPage(this,"ErrowWindow.fxml");
+        fxmlLoaderMethod(controller);
+    }
 
     public void makeAccountWindow(UserAccount account){
         BaseController controller =new AdminDashboardPage(this,"NewAccountWindow.fxml",account);
