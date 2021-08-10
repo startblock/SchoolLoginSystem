@@ -6,8 +6,8 @@ import java.util.GregorianCalendar;
 
 public class Homework {
 
-    private String subject;
-    private Calendar due;
+    private final String subject;   //final?
+    private final Calendar due;      // could be final type?
     private String desc;
 
     public Homework(String subject,int yearDue,int monthDue, int dayDue){
@@ -25,10 +25,6 @@ public class Homework {
 
     }
 
-    public void setDesc(String desc) {
-        desc = desc;
-    }
-
     public String getSubject() {
         return subject;
     }
@@ -39,6 +35,10 @@ public class Homework {
 
     public String getDesc() {
         return desc;
+    }
+
+    public void setDesc(String desc) {
+        desc = desc;
     }
 
 }

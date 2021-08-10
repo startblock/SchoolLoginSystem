@@ -10,10 +10,7 @@ public class UserDatabaseMap {
 
     }
     public static boolean isIDPresent(int ID){
-        if(userDatabaseMap.containsKey(ID)){
-            return true;
-        }
-        else {return false;}
+        return userDatabaseMap.containsKey(ID);
     }
 
     public static UserAccount getUserFromMap(int ID){

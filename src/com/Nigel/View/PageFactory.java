@@ -19,9 +19,10 @@ public class PageFactory {
     public void mainLogWindow() {
         BaseController controller = new LoginPage(this, "loginPage.fxml");
         fxmlLoaderMethod(controller);
+
     }
-    public void makeErrorWindow(){
-        BaseController controller = new ErrorPage(this,"ErrowWindow.fxml");
+    public void makeErrorWindow( ){
+        BaseController controller = new ErrorPage(this,"ErrorWindow.fxml");
         fxmlLoaderMethod(controller);
     }
 

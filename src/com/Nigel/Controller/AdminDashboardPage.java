@@ -50,10 +50,11 @@ public class AdminDashboardPage extends BaseController implements Initializable 
 
     @FXML
     void createOnClick() {
+
         int newIdNo=0;
-        if (accountType.getValue()==null){
-            //error window
-        }
+
+//
+        try{
         switch (accountType.getValue()){
             case ADMIN:
                 UserAccount newAdAcc= new AdminAccount(nameString.getText(),newAccPass.getText());
@@ -68,10 +69,20 @@ public class AdminDashboardPage extends BaseController implements Initializable 
                 UserAccount newTeacherAcc= new TeacherAccount(nameString.getText(),newAccPass.getText());
                 newIdNo=newTeacherAcc.getID();
                 break;
-            case null:
-
 
         }
+        }
+        catch (NullPointerException e){
+            System.out.println("..............................>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>!!!!!!!!!!!!!!!");
+            e.printStackTrace();
+
+            setErrorMessage("testing qrlo");
+            System.out.println(errorMessage);
+            System.out.println(getErrorMessage());
+            pageFactory.makeErrorWindow();
+
+        }
+
         System.out.println(newIdNo);
 
     }

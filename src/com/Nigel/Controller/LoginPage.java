@@ -13,8 +13,6 @@ import java.util.ResourceBundle;
 
 public class LoginPage extends BaseController implements Initializable {
 
-    private UserAccount userAccount;
-
     @FXML
     private TextField loginDetails;
 
@@ -37,7 +35,7 @@ public class LoginPage extends BaseController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) { //initializes gui
 
         Bulletin.setText(getBulletin());
-        System.out.println(getBulletin());
+
 
     }
 
@@ -61,8 +59,7 @@ public class LoginPage extends BaseController implements Initializable {
         if(UserDatabaseMap.isIDPresent(IDloginStringToInt)){
 
 
-            this.userAccount=UserDatabaseMap.getUserFromMap(IDloginStringToInt);
-
+            UserAccount userAccount = UserDatabaseMap.getUserFromMap(IDloginStringToInt);
 
 
 
